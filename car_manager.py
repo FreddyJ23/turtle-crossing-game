@@ -9,16 +9,17 @@ class CarManager(Turtle):
     def __init__(self):
         super().__init__()
         self.cars = []
-        self.create_cars(10,100, 400)
         self.hideturtle()
 
-    def create_cars(self, num, position_x, position_y):
-        for new_car in range(num):
+    def create_car(self):
+        random_chance = random.randint(1,6)
+        if random_chance == 1:
             new_car = Turtle(shape="square")
             new_car.shapesize(stretch_wid=1, stretch_len=2)
             new_car.color(random.choice(COLORS))
             new_car.pu()
-            new_car.goto(random.randint(position_x, position_y), random.randint(-250, 250))
+            random_y = random.randint(-250, 250)
+            new_car.goto(300, random_y)
             self.cars.append(new_car)
 
     def move_car(self):
